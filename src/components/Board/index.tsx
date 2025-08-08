@@ -16,7 +16,7 @@ function Board({ apple, snake }: BoardProps) {
         return (
           <div
             key={index}
-            className={clsx("border border-white h-8 w-8", {
+            className={clsx("border border-white h-5 w-5", {
               "bg-red-500": currentX === apple.x && currentY === apple.y,
               "bg-green-500": snake.some(
                 (block) => block.x === currentX && block.y === currentY

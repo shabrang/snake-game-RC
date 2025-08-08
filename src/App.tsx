@@ -34,6 +34,16 @@ function App() {
   }, [direction]);
 
   useEffect(() => {
+    if (snake[0].x === apple.x && snake[0].y === apple.y) {
+      setSnake((snake) => [{ ...apple }, ...snake]);
+      setApple({
+        x: Math.floor(Math.random() * 30),
+        y: Math.floor(Math.random() * 30),
+      });
+    }
+  }, [apple, snake]);
+
+  useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       switch (event.key) {
         case "ArrowUp":
